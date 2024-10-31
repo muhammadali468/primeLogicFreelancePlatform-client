@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true /* When type checking, take into account 'null' and 'undefined'. */,
+    "strictFunctionTypes": true /* When assigning functions, check to ensure parameters and the return values are subtype-compatible. */,
+    "alwaysStrict": true,
+    "noUnusedLocals": true /* Enable error reporting when local variables aren't read. */,
+    "strictBindCallApply": true, // Checks types for bind, call, and apply methods strictly
+    "strictPropertyInitialization": true, // Ensures class properties are initialized properly
+    "noImplicitThis": true, // Disallows 'this' to be implicitly of type 'any'
+    "noImplicitReturns": true, // Ensures all code paths return a value in functions
+    "noFallthroughCasesInSwitch": true, // Ensures that switch statements have no fallthrough cases
+    "noUncheckedIndexedAccess": true, // Ensures that accessing array elements and object properties has checked index types
+    "exactOptionalPropertyTypes": true, // Ensures optional properties are only assignable to undefined if explicitly typed
+    "useUnknownInCatchVariables": true, // Enforces   "noUnusedParameters": true /* Raise an error when a function parameter isn't read. */,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

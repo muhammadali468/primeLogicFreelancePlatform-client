@@ -1,0 +1,18 @@
+import { useEffect } from "react";
+
+const Preloader = () => {
+    useEffect(() => {
+        setTimeout(() => {
+            // @ts-ignore
+            document.querySelector("body").classList.add("loaded");
+        }, 2000);
+    }, []);
+    return (
+        <div className="loader-wrapper">
+            <div className="loader" />
+            <div className="loder-section left-section" />
+            <div className="loder-section right-section" />
+        </div>
+    );
+};
+export default Preloader;

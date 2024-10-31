@@ -1,0 +1,3 @@
+#!/bin/sh
+yarn commit-lint "$1"
+
