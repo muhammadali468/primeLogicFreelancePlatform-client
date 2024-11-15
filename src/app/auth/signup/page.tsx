@@ -1,127 +1,211 @@
-import React from 'react';
+"use client";
+// import ButtonLoader from "@/_subComponents/buttonLoader/buttonLoader";
+// import DivWrapper from "@/_subComponents/divWrapper/DivWrapper";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { BACKEND_URI } from "@/config";
+import { useLoading } from "@/hooks/useLoading";
+import { useMessage } from "@/hooks/useMessage";
+import { cn } from "@/lib/utils";
+import type { UserRegisterTypes } from "@/types";
+import { registerSchema } from "@/validation/Schemas/dataSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { EyeClosedIcon, EyeOpenIcon } from "@radix-ui/react-icons";
+import axios from "axios";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+// ********************  Register Form
 
-const Signup: React.FC = () => {
+function RegisterForm() {
+  const { successMessage } = useMessage();
+  const { isLoading, startLoading, stopLoading } = useLoading();
+  const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setConfirmShowPassword] = useState(false);
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<UserRegisterTypes>({ resolver: zodResolver(registerSchema) });
+  const handleRegisterSubmit = async (data: UserRegisterTypes) => {
+    console.log(data);
+    const { username, fullName, email, password } = data;
+
+    try {
+      startLoading();
+      const response = await axios.post(
+        `${BACKEND_URI}/api/v1/auth/register`,
+        {
+          username: username.toLowerCase(),
+          fullName: fullName.toLowerCase(),
+          email: email.toLowerCase(),
+          password
+        },
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+      console.log(response);
+      stopLoading();
+      if (response.data.success) {
+        reset();
+        successMessage(response.data.message || "User Registered successfully.");
+
+        setTimeout(() => {
+          return router.push("/user-auth/sign-in");
+        }, 3000);
+      }
+    } catch (error: any) {
+      stopLoading();
+      console.log(error);
+
+      // return errorMessage(error?.response?.data?.message || "some thing went wrong while register the user");
+    }
+  };
   return (
-    <section className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-          <img
-            className="w-8 h-8 mr-2"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
-            alt="logo"
-          />
-          Flowbite
-        </a>
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-              Sign up to your account
-            </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
-              <div>
-                <label htmlFor="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Username
-                </label>
-                <input
-                  type="username"
-                  name="username"
-                  id="username"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@company.com"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Your email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@company.com"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="fullname" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Full Name
-                </label>
-                <input
-                  type="fullname"
-                  name="fullname"
-                  id="fullname"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@company.com"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="••••••••"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="confirmPassword" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Confirm Password
-                </label>
-                <input
-                  type="confirmPassword"
-                  name="confirmPassword"
-                  id="confirmPassword"
-                  placeholder="••••••••"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="remember"
-                      aria-describedby="remember"
-                      type="checkbox"
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                      required
-                    />
-                  </div>
-                  <div className="ml-3 text-sm">
-                    <label htmlFor="remember" className="text-gray-500 dark:text-gray-300">
-                      Remember me
-                    </label>
-                  </div>
+    <>
+      <p>{BACKEND_URI}</p>
+      <section className="relative top-20">
+        <form
+          onSubmit={handleSubmit(handleRegisterSubmit)}
+          className="">
+          <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 ">
+            <div className="border rounded-lg shadow-sm  sm:w-full bg-background md:mt-0 sm:max-w-md xl:p-0  border-solid">
+              <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 className="text-xl font-bold leading-tight tracking-tight text-center text-foreground md:text-2xl">Create an Account</h1>
+                <div className="grid items-center w-full max-w-sm">
+                  <Label
+                    className="mb-1"
+                    htmlFor="username">
+                    Username
+                  </Label>
+                  <Input
+                    autoCapitalize="off"
+                    {...register("username")}
+                    type="text"
+                    placeholder="john_doe"
+                    id="username"
+                    className="border-solid"
+                  />
+                  <p className="h-[15px]">
+                    {errors.username && (
+                      <span className="text-xs select-none text-red-500 h-[15px] text-balance ml-2">{errors.username.message}</span>
+                    )}
+                  </p>
                 </div>
-                <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">
-                  Forgot password?
-                </a>
-              </div>
-              <button
-                type="submit"
-                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                Sign in
-              </button>
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Don’t have an account yet?{' '}
-                <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">
-                  Sign up
-                </a>
-              </p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+                <div className="grid items-center w-full max-w-sm">
+                  <Label
+                    className="mb-1"
+                    htmlFor="fullName">
+                    Full Name
+                  </Label>
+                  <Input
+                    {...register("fullName")}
+                    type="text"
+                    placeholder="John Doe"
+                    id="fullName"
+                    className="border-solid"
+                  />
+                  <p className="h-[15px]">
+                    {errors.fullName && (
+                      <span className="text-xs select-none text-red-500 h-[15px] text-balance ml-2">{errors.fullName.message}</span>
+                    )}
+                  </p>
+                </div>
+                <div className="grid items-center w-full max-w-sm">
+                  <Label
+                    className="mb-1"
+                    htmlFor="email">
+                    Email
+                  </Label>
+                  <Input
+                    {...register("email")}
+                    type="email"
+                    placeholder="john@mail.com"
+                    id="email"
+                    className="border-solid"
+                  />
+                  <p className="h-[15px]">
+                    {errors.email && <span className="text-xs select-none text-red-500 h-[15px] text-balance ml-2">{errors.email.message}</span>}
+                  </p>
+                </div>
+                <div className="relative grid items-center w-full max-w-sm">
+                  <Label
+                    className="mb-1"
+                    htmlFor="password">
+                    Password
+                  </Label>
+                  <Input
+                    className="pr-14 border-solid"
+                    {...register("password")}
+                    type={showPassword ? "text" : "password"}
+                    placeholder="••••••••"
+                    id="password"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    className="absolute right-3 top-6  cursor-pointer h-7 w-7">
+                    {showPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
+                  </button>
+                  <p className="h-[15px]">
+                    {errors.password && (
+                      <span className="text-xs select-none text-red-500 h-[15px] text-balance ml-2">{errors.password.message}</span>
+                    )}
+                  </p>
+                </div>
+                <div className="relative grid items-center w-full max-w-sm">
+                  <Label
+                    className="mb-1"
+                    htmlFor="confirm">
+                    Confirm Password
+                  </Label>
+                  <Input
+                    className="pr-14 border-solid"
+                    {...register("confirmPassword")}
+                    type={showConfirmPassword ? "text" : "password"}
+                    placeholder="••••••••"
+                    id="confirm"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setConfirmShowPassword((prev) => !prev)}
+                    className="absolute right-3 top-6  cursor-pointer h-7 w-7">
+                    {showConfirmPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
+                  </button>
+                  <p className="h-[15px]">
+                    {errors.confirmPassword && (
+                      <span className="text-xs select-none text-red-500 h-[15px] text-balance ml-2">{errors.confirmPassword.message}</span>
+                    )}
+                  </p>
+                </div>
 
-export default Signup;
+                <Button
+                  disabled={isLoading}
+                  className={cn("w-full", isLoading && "cursor-not-allowed bg-foreground/80   hover:bg-background/80 ")}>
+                  {isLoading ? "loading" : <span>Register</span>}
+                </Button>
+                <p className="text-sm text-center ">
+                  Already have an Account ?
+                  <Link
+                    href="/user-auth/sign-in"
+                    className="hover:underline">
+                    <span>&nbsp; Login</span>
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </>
+  );
+}
+
+export default RegisterForm;

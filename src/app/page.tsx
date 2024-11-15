@@ -1,6 +1,6 @@
 // import { Button } from "@/components/ui/button";
 // import { testimonial_list_slider } from "@/components/ui/sliderProps";
-"use client"
+"use client";
 import ProgressBar from "@/components/Progressbar";
 import CaseStudies from "@/components/sections/casestudies";
 import Counter from "@/components/ui/Counter";
@@ -8,7 +8,7 @@ import LandingHeader from "@/components/ui/LandingHeader";
 import { testimonial_list_slider } from "@/components/ui/sliderProps";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import 'swiper/swiper-bundle.css';
+import "swiper/swiper-bundle.css";
 // import { useState } from "react";
 import Footer from "@/components/sections/Footer";
 import Preloader from "@/components/sections/Preloader";
@@ -28,7 +28,9 @@ export default function Home() {
     <>
       <Preloader />
       <LandingHeader />
-      <div className="slider-area slider2 flex items-center" id="home">
+      <div
+        className="slider-area slider2 flex items-center"
+        id="home">
         <div className="container mx-auto">
           <div className="flex flex-col items-center">
             <div className="w-full">
@@ -37,12 +39,12 @@ export default function Home() {
                 <h1 className="text-4xl font-bold">
                   Planning <span className="text-primary">Guide</span>
                 </h1>
-                <p className="mt-4 text-lg">
-                  Without Consulting Plans, Plans not Growing fashion user friendly architectures synergistic resources.
-                </p>
+                <p className="mt-4 text-lg">Without Consulting Plans, Plans not Growing fashion user friendly architectures synergistic resources.</p>
               </div>
               <div className="slider-button mt-8">
-                <Link legacyBehavior href="/service">
+                <Link
+                  legacyBehavior
+                  href="/service">
                   <a className="inline-flex items-center gap-2 text-lg text-primary hover:underline">
                     <i className="bi bi-gear" /> Discover More
                   </a>
@@ -52,25 +54,46 @@ export default function Home() {
             {/* Slider shapes */}
             <div className="slider-shape  mt-8">
               <div className="slider-shape-thumb2">
-                <img src="assets/images/slider/shape2.png" alt="" />
+                <img
+                  src="assets/images/slider/shape2.png"
+                  alt=""
+                />
               </div>
               <div className="slider-shape-thumb4">
-                <img src="assets/images/slider/shape3.png" alt="" />
+                <img
+                  src="assets/images/slider/shape3.png"
+                  alt=""
+                />
               </div>
               <div className="slider-shape-thumb5 dance">
-                <img src="assets/images/slider/circle1.png" alt="" />
+                <img
+                  src="assets/images/slider/circle1.png"
+                  alt=""
+                />
               </div>
               <div className="slider-shape-thumb6 bounce-animate">
-                <img src="assets/images/slider/circle2.png" alt="" />
+                <img
+                  src="assets/images/slider/circle2.png"
+                  alt=""
+                />
               </div>
               <div className="slider-shape-thumb7 bounce-animate2">
-                <img src="assets/images/slider/circle3.png" alt="" />
+                <img
+                  src="assets/images/slider/circle3.png"
+                  alt=""
+                />
               </div>
               <div className="slider-shape-thumb8 bounce-animate3">
-                <img src="assets/images/slider/white-dot.png" alt="" />
+                <img
+                  src="assets/images/slider/white-dot.png"
+                  alt=""
+                />
               </div>
               <div className="slider-shape-thumb9">
-                <img src="assets/images/slider/line.png" alt="" />
+                <img
+                  src="assets/images/slider/line.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -83,15 +106,16 @@ export default function Home() {
             <div className="single-feature-box">
               <div className="feature-box-inner p-6 border rounded-lg shadow">
                 <div className="feature-icon1 mb-4">
-                  <img src="assets/images/resource/main1.png" alt="Business Planning" />
+                  <img
+                    src="assets/images/resource/main1.png"
+                    alt="Business Planning"
+                  />
                 </div>
                 <div className="feature-title mb-2">
                   <h3 className="text-xl font-semibold">Business Planning</h3>
                 </div>
                 <div className="feature-text mb-4">
-                  <p>
-                    Appropriately enhance principle-cent standards in platforms. Credibly orch popular services.
-                  </p>
+                  <p>Appropriately enhance principle-cent standards in platforms. Credibly orch popular services.</p>
                 </div>
                 <div className="feature-bar h-1 bg-primary" />
               </div>
@@ -102,7 +126,11 @@ export default function Home() {
                   <h2 className="text-2xl font-bold">Strategy Building</h2>
                 </div>
                 <div className="feature-back-icon">
-                  <a href="#" className="text-xl font-bold">+</a>
+                  <a
+                    href="#"
+                    className="text-xl font-bold">
+                    +
+                  </a>
                 </div>
               </div>
             </div>
@@ -110,15 +138,16 @@ export default function Home() {
             <div className="single-feature-box">
               <div className="feature-box-inner p-6 border rounded-lg shadow">
                 <div className="feature-icon1 mb-4">
-                  <img src="assets/images/resource/main3.png" alt="Cloud Solutions" />
+                  <img
+                    src="assets/images/resource/main3.png"
+                    alt="Cloud Solutions"
+                  />
                 </div>
                 <div className="feature-title mb-2">
                   <h3 className="text-xl font-semibold">Cloud Solutions</h3>
                 </div>
                 <div className="feature-text mb-4">
-                  <p>
-                    Appropriately enhance principle-cent standards in platforms. Credibly orch popular services.
-                  </p>
+                  <p>Appropriately enhance principle-cent standards in platforms. Credibly orch popular services.</p>
                 </div>
                 <div className="feature-bar h-1 bg-primary" />
               </div>
@@ -129,7 +158,11 @@ export default function Home() {
                   <h2 className="text-2xl font-bold">Strategy Building</h2>
                 </div>
                 <div className="feature-back-icon">
-                  <a href="#" className="text-xl font-bold">+</a>
+                  <a
+                    href="#"
+                    className="text-xl font-bold">
+                    +
+                  </a>
                 </div>
               </div>
             </div>
@@ -137,15 +170,16 @@ export default function Home() {
             <div className="single-feature-box">
               <div className="feature-box-inner p-6 border rounded-lg shadow">
                 <div className="feature-icon1 mb-4">
-                  <img src="assets/images/resource/main2.png" alt="Customers Support" />
+                  <img
+                    src="assets/images/resource/main2.png"
+                    alt="Customers Support"
+                  />
                 </div>
                 <div className="feature-title mb-2">
                   <h3 className="text-xl font-semibold">Customers Support</h3>
                 </div>
                 <div className="feature-text mb-4">
-                  <p>
-                    Appropriately enhance principle-cent standards in platforms. Credibly orch popular services.
-                  </p>
+                  <p>Appropriately enhance principle-cent standards in platforms. Credibly orch popular services.</p>
                 </div>
                 <div className="feature-bar h-1 bg-primary" />
               </div>
@@ -156,14 +190,21 @@ export default function Home() {
                   <h2 className="text-2xl font-bold">Strategy Building</h2>
                 </div>
                 <div className="feature-back-icon">
-                  <a href="#" className="text-xl font-bold">+</a>
+                  <a
+                    href="#"
+                    className="text-xl font-bold">
+                    +
+                  </a>
                 </div>
               </div>
             </div>
 
             {/* feature shape */}
             <div className="feature-shape bounce-animate2 mt-8 col-span-1">
-              <img src="assets/images/resource/all-shape4.png" alt="Feature Shapes" />
+              <img
+                src="assets/images/resource/all-shape4.png"
+                alt="Feature Shapes"
+              />
             </div>
           </div>
         </div>
@@ -171,18 +212,29 @@ export default function Home() {
 
       {/* Section 3 */}
 
-      <div className="about-area style-three" id="about">
+      <div
+        className="about-area style-three"
+        id="about">
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row items-center">
             <div className="lg:w-1/2 md:w-full mb-8 lg:mb-0">
               <div className="dreamit-about-thumb">
-                <img src="assets/images/about/about-2.png" alt="About Us" />
+                <img
+                  src="assets/images/about/about-2.png"
+                  alt="About Us"
+                />
                 {/* about-shape */}
                 <div className="about-shape-thumb1 bounce-animate2 ">
-                  <img src="assets/images/about/about-shpe.png" alt="About Shape 1" />
+                  <img
+                    src="assets/images/about/about-shpe.png"
+                    alt="About Shape 1"
+                  />
                 </div>
                 <div className="about-shape-thumb3 bounce-animate4">
-                  <img src="assets/images/about/about-shape4.png" alt="About Shape 2" />
+                  <img
+                    src="assets/images/about/about-shape4.png"
+                    alt="About Shape 2"
+                  />
                 </div>
               </div>
             </div>
@@ -229,7 +281,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="about-button">
-                <Link legacyBehavior href="/about">
+                <Link
+                  legacyBehavior
+                  href="/about">
                   <a className="flex items-center text-lg text-primary hover:underline">
                     <i className="bi bi-gear mr-2" /> More About
                   </a>
@@ -241,7 +295,9 @@ export default function Home() {
       </div>
 
       {/* Section 4 */}
-      <div className="service-area style-three" id="service">
+      <div
+        className="service-area style-three"
+        id="service">
         <div className="container mx-auto">
           <div className="flex">
             <div className="lg:w-7/12 md:w-6/12 mb-4">
@@ -260,19 +316,22 @@ export default function Home() {
               <div className="dreamit-service-box">
                 <div className="service-box-inner">
                   <div className="em-service-icon1 upper">
-                    <img src="assets/images/resource/service-icon8.png" alt="Business Growth" />
+                    <img
+                      src="assets/images/resource/service-icon8.png"
+                      alt="Business Growth"
+                    />
                   </div>
                   <div className="em-service-title">
                     <h3 className="text-xl font-semibold">Business Growth</h3>
                   </div>
                   <div className="service-bar" />
                   <div className="em-service-text">
-                    <p>
-                      Dramatically cultivate qualit user centric growth stratege enable emerging.
-                    </p>
+                    <p>Dramatically cultivate qualit user centric growth stratege enable emerging.</p>
                   </div>
                   <div className="service-button">
-                    <Link legacyBehavior href="/service-details">
+                    <Link
+                      legacyBehavior
+                      href="/service-details">
                       <a className="flex items-center text-primary hover:underline">
                         Read More <i className="bi bi-plus ml-1" />
                       </a>
@@ -286,19 +345,22 @@ export default function Home() {
               <div className="dreamit-service-box">
                 <div className="service-box-inner">
                   <div className="em-service-icon1">
-                    <img src="assets/images/resource/service-icon5.png" alt="Content Strategy" />
+                    <img
+                      src="assets/images/resource/service-icon5.png"
+                      alt="Content Strategy"
+                    />
                   </div>
                   <div className="em-service-title">
                     <h3 className="text-xl font-semibold">Content Strategy</h3>
                   </div>
                   <div className="service-bar" />
                   <div className="em-service-text">
-                    <p>
-                      Dramatically cultivate qualit user centric growth stratege enable emerging.
-                    </p>
+                    <p>Dramatically cultivate qualit user centric growth stratege enable emerging.</p>
                   </div>
                   <div className="service-button">
-                    <Link legacyBehavior href="/service-details">
+                    <Link
+                      legacyBehavior
+                      href="/service-details">
                       <a className="flex items-center text-primary hover:underline">
                         Read More <i className="bi bi-plus ml-1" />
                       </a>
@@ -312,19 +374,22 @@ export default function Home() {
               <div className="dreamit-service-box">
                 <div className="service-box-inner">
                   <div className="em-service-icon1">
-                    <img src="assets/images/resource/service-icon6.png" alt="IT Consulting" />
+                    <img
+                      src="assets/images/resource/service-icon6.png"
+                      alt="IT Consulting"
+                    />
                   </div>
                   <div className="em-service-title">
                     <h3 className="text-xl font-semibold">IT Consulting</h3>
                   </div>
                   <div className="service-bar" />
                   <div className="em-service-text">
-                    <p>
-                      Dramatically cultivate qualit user centric growth stratege enable emerging.
-                    </p>
+                    <p>Dramatically cultivate qualit user centric growth stratege enable emerging.</p>
                   </div>
                   <div className="service-button">
-                    <Link legacyBehavior href="/service-details">
+                    <Link
+                      legacyBehavior
+                      href="/service-details">
                       <a className="flex items-center text-primary hover:underline">
                         Read More <i className="bi bi-plus ml-1" />
                       </a>
@@ -338,19 +403,22 @@ export default function Home() {
               <div className="dreamit-service-box">
                 <div className="service-box-inner">
                   <div className="em-service-icon1">
-                    <img src="assets/images/resource/service-icon7.png" alt="Leadership Work" />
+                    <img
+                      src="assets/images/resource/service-icon7.png"
+                      alt="Leadership Work"
+                    />
                   </div>
                   <div className="em-service-title">
                     <h3 className="text-xl font-semibold">Leadership Work</h3>
                   </div>
                   <div className="service-bar" />
                   <div className="em-service-text">
-                    <p>
-                      Dramatically cultivate qualit user centric growth stratege enable emerging.
-                    </p>
+                    <p>Dramatically cultivate qualit user centric growth stratege enable emerging.</p>
                   </div>
                   <div className="service-button">
-                    <Link legacyBehavior href="/service-details">
+                    <Link
+                      legacyBehavior
+                      href="/service-details">
                       <a className="flex items-center text-primary hover:underline">
                         Read More <i className="bi bi-plus ml-1" />
                       </a>
@@ -364,17 +432,25 @@ export default function Home() {
             <div className="service-bottom-text">
               <p>
                 Consulting and Finance Services Built Specially and Business{" "}
-                <Link legacyBehavior href="/service">
+                <Link
+                  legacyBehavior
+                  href="/service">
                   <a className="text-primary hover:underline">Find Solutions</a>
                 </Link>
               </p>
             </div>
           </div>
           <div className="service-shape">
-            <img src="assets/images/resource/all-shape3.png" alt="Service Shape 1" />
+            <img
+              src="assets/images/resource/all-shape3.png"
+              alt="Service Shape 1"
+            />
           </div>
           <div className="service-shape1 bounce-animate2">
-            <img src="assets/images/resource/all-shape6.png" alt="Service Shape 2" />
+            <img
+              src="assets/images/resource/all-shape6.png"
+              alt="Service Shape 2"
+            />
           </div>
         </div>
       </div>
@@ -416,7 +492,9 @@ export default function Home() {
                 </ul>
               </div>
               <div className="why-choose-button">
-                <Link legacyBehavior href="/about">
+                <Link
+                  legacyBehavior
+                  href="/about">
                   <a className="flex items-center text-primary hover:underline">
                     <i className="bi bi-gear mr-1" />
                     More About
@@ -426,20 +504,35 @@ export default function Home() {
             </div>
             <div className="lg:w-1/2 md:w-full">
               <div className="why-choose-us-thumb">
-                <img src="assets/images/resource/why-choose.png" alt="Why Choose Us" />
+                <img
+                  src="assets/images/resource/why-choose.png"
+                  alt="Why Choose Us"
+                />
                 {/* Choose shape thumb */}
                 <div className="why-choose-us-image relative">
                   <div className="why-choose-us-shape-thumb bounce-animate">
-                    <img src="assets/images/resource/all-shape2.png" alt="Shape 1" />
+                    <img
+                      src="assets/images/resource/all-shape2.png"
+                      alt="Shape 1"
+                    />
                   </div>
                   <div className="why-choose-us-shape-thumb2 rotateme">
-                    <img src="assets/images/resource/case-shape.png" alt="Shape 2" />
+                    <img
+                      src="assets/images/resource/case-shape.png"
+                      alt="Shape 2"
+                    />
                   </div>
                   <div className="why-choose-us-shape-thumb3 bounce-animate2">
-                    <img src="assets/images/resource/case-shape2.png" alt="Shape 3" />
+                    <img
+                      src="assets/images/resource/case-shape2.png"
+                      alt="Shape 3"
+                    />
                   </div>
                   <div className="why-choose-us-shape-thumb4">
-                    <img src="assets/images/about/about-shape4.png" alt="Shape 4" />
+                    <img
+                      src="assets/images/about/about-shape4.png"
+                      alt="Shape 4"
+                    />
                   </div>
                 </div>
                 {/* End choose shape thumb */}
@@ -488,47 +581,53 @@ export default function Home() {
               </div>
             </div>
             <div className="testi-shape-thumb1 rotateme">
-              <img src="assets/images/resource/testimonial-map.png" alt="Testimonial Map" />
+              <img
+                src="assets/images/resource/testimonial-map.png"
+                alt="Testimonial Map"
+              />
             </div>
           </div>
           <div className="row">
             <Swiper
               {...testimonial_list_slider}
-              className="testimonial_list owl-carousel"
-            >
+              className="testimonial_list owl-carousel">
               {[
                 {
                   name: "Philip Anthorpy",
                   role: "UI Designer",
                   image: "assets/images/resource/testi1.png",
-                  review: "Holisticly pursue market-more synerg through innovative paradi. Enthusia productivate media.",
+                  review: "Holisticly pursue market-more synerg through innovative paradi. Enthusia productivate media."
                 },
                 {
                   name: "Shilpa Shethy",
                   role: "CEO, Founder",
                   image: "assets/images/resource/testi3.png",
-                  review: "Holisticly pursue market-more synerg through innovative paradi. Enthusia productivate media.",
+                  review: "Holisticly pursue market-more synerg through innovative paradi. Enthusia productivate media."
                 },
                 {
                   name: "David Alexon",
                   role: "MH Manager",
                   image: "assets/images/resource/testi2.png",
-                  review: "Holisticly pursue market-more synerg through innovative paradi. Enthusia productivate media.",
+                  review: "Holisticly pursue market-more synerg through innovative paradi. Enthusia productivate media."
                 },
                 {
                   name: "Shilpa Shethy",
                   role: "CEO, Founder",
                   image: "assets/images/resource/testi3.png",
-                  review: "Holisticly pursue market-more synerg through innovative paradi. Enthusia productivate media.",
-                },
-
+                  review: "Holisticly pursue market-more synerg through innovative paradi. Enthusia productivate media."
+                }
               ].map((testimonial, index) => (
-                <SwiperSlide key={index} className="pr-1">
+                <SwiperSlide
+                  key={index}
+                  className="pr-1">
                   <div className="testimonial-single-box">
                     <div className="testimonial-content1">
                       <div className="single-quote-icon flex items-center mb-4">
                         <div className="quote-thumb mr-3">
-                          <img src={testimonial.image} alt={testimonial.name} />
+                          <img
+                            src={testimonial.image}
+                            alt={testimonial.name}
+                          />
                         </div>
                         <div className="quote-title">
                           <h4 className="text-lg font-semibold">{testimonial.name}</h4>
@@ -540,7 +639,10 @@ export default function Home() {
                       </div>
                       <div className="em-testi-start-icon">
                         {[...Array(4)].map((_, i) => (
-                          <i key={i} className="bi bi-star-fill" />
+                          <i
+                            key={i}
+                            className="bi bi-star-fill"
+                          />
                         ))}
                         <i className="bi bi-star-half" />
                       </div>
@@ -552,14 +654,19 @@ export default function Home() {
             </Swiper>
             <div className="testi-shape">
               <div className="testi-shape-thumb">
-                <img src="assets/images/resource/all-shape5.png" alt="Shape" />
+                <img
+                  src="assets/images/resource/all-shape5.png"
+                  alt="Shape"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
       {/* Section 6 */}
-      <div className="case-study-area style-three" id="portfolio">
+      <div
+        className="case-study-area style-three"
+        id="portfolio">
         <div className="container mx-auto">
           <CaseStudies />
         </div>
@@ -582,9 +689,8 @@ export default function Home() {
               <div className="process-text">
                 <p>
                   {" "}
-                  Monotonectally brand worldwide value before in seamless
-                  process Collaboratively initiate strategic expertise after
-                  functionalized and formulate based internal organic.{" "}
+                  Monotonectally brand worldwide value before in seamless process Collaboratively initiate strategic expertise after functionalized
+                  and formulate based internal organic.{" "}
                 </p>
               </div>
             </div>
@@ -592,10 +698,16 @@ export default function Home() {
           {/* process shape */}
           <div className="process-shape">
             <div className="service-shape">
-              <img src="assets/images/resource/all-shape3.png" alt="" />
+              <img
+                src="assets/images/resource/all-shape3.png"
+                alt=""
+              />
             </div>
             <div className="process-shape-thumb bounce-animate2">
-              <img src="assets/images/resource/all-shape6.png" alt="" />
+              <img
+                src="assets/images/resource/all-shape6.png"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -607,42 +719,42 @@ export default function Home() {
             <div className="col-lg-4 col-sm-6 px-4">
               <div className="process-single-box2">
                 <div className="process-icon-thumb flex justify-center">
-                  <img src="assets/images/resource/a.png" alt="" />
+                  <img
+                    src="assets/images/resource/a.png"
+                    alt=""
+                  />
                 </div>
                 <div className="process-title">
                   <h3>Idea Generate</h3>
-                  <p>
-                    Collaboratively initiate strategic ex formulate based
-                    internal.
-                  </p>
+                  <p>Collaboratively initiate strategic ex formulate based internal.</p>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 px-4">
               <div className="process-single-box2 responsive">
                 <div className="process-icon-thumb flex justify-center">
-                  <img src="assets/images/resource/b.png" alt="" />
+                  <img
+                    src="assets/images/resource/b.png"
+                    alt=""
+                  />
                 </div>
                 <div className="process-title">
                   <h3> System Design </h3>
-                  <p>
-                    Collaboratively initiate strategic ex formulate based
-                    internal.
-                  </p>
+                  <p>Collaboratively initiate strategic ex formulate based internal.</p>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 px-4">
               <div className="process-single-box2 upper">
                 <div className="process-icon-thumb flex justify-center after:!hidden ">
-                  <img src="assets/images/resource/c.png" alt="" />
+                  <img
+                    src="assets/images/resource/c.png"
+                    alt=""
+                  />
                 </div>
                 <div className="process-title">
                   <h3> Report Analysis </h3>
-                  <p>
-                    Collaboratively initiate strategic ex formulate based
-                    internal.
-                  </p>
+                  <p>Collaboratively initiate strategic ex formulate based internal.</p>
                 </div>
               </div>
             </div>
@@ -656,7 +768,9 @@ export default function Home() {
         </div>
       </div>
       {/* Section 8 */}
-      <div className="team_area new" id="team">
+      <div
+        className="team_area new"
+        id="team">
         <div className="container mx-auto">
           <div className="row">
             <div className="col-lg-12">
@@ -673,7 +787,10 @@ export default function Home() {
             <div className="col-lg-4 col-sm-6 px-4">
               <div className="single_team">
                 <div className="single_team_thumb1">
-                  <img src="assets/images/resource/team-1.jpg" alt="logo" />
+                  <img
+                    src="assets/images/resource/team-1.jpg"
+                    alt="logo"
+                  />
                 </div>
                 <div className="single_team_content">
                   <div className="team-title">
@@ -703,7 +820,10 @@ export default function Home() {
             <div className="col-lg-4 col-sm-6 px-4">
               <div className="single_team">
                 <div className="single_team_thumb1">
-                  <img src="assets/images/resource/team-2.jpg" alt="image" />
+                  <img
+                    src="assets/images/resource/team-2.jpg"
+                    alt="image"
+                  />
                 </div>
                 <div className="single_team_content">
                   <div className="team-title">
@@ -733,7 +853,10 @@ export default function Home() {
             <div className="col-lg-4 col-sm-6 px-4">
               <div className="single_team">
                 <div className="single_team_thumb1">
-                  <img src="assets/images/resource/team-3.jpg" alt="image" />
+                  <img
+                    src="assets/images/resource/team-3.jpg"
+                    alt="image"
+                  />
                 </div>
                 <div className="single_team_content">
                   <div className="team-title">
@@ -764,7 +887,9 @@ export default function Home() {
         </div>
       </div>
       {/* Section 9 */}
-      <div className="faq-area" id="contact">
+      <div
+        className="faq-area"
+        id="contact">
         <div className="container mx-auto">
           <div className="row flex gap-8">
             <div className="col-lg-6 col-md-6 pl-0">
@@ -777,9 +902,9 @@ export default function Home() {
                     Freequently Asked <span> Question </span>
                   </h2>
                 </div>
-                <div id="tab1" className="tab_content">
-
-                </div>
+                <div
+                  id="tab1"
+                  className="tab_content"></div>
               </div>
               {/* End Accordion */}
             </div>
@@ -790,11 +915,17 @@ export default function Home() {
                   <p> 24/7 anytime Open Our Services </p>
                 </div>
                 <div className="contact_from">
-                  <form onSubmit={(e) => e.preventDefault()} id="dreamit-form">
+                  <form
+                    onSubmit={(e) => e.preventDefault()}
+                    id="dreamit-form">
                     <div className="row">
                       <div className="col-lg-12">
                         <div className="form_box mb-20">
-                          <input type="text" name="name" placeholder="Name*" />
+                          <input
+                            type="text"
+                            name="name"
+                            placeholder="Name*"
+                          />
                         </div>
                       </div>
                       <div className="col-lg-12">
@@ -827,7 +958,9 @@ export default function Home() {
                           />
                         </div>
                         <div className="quote_button">
-                          <button className="btn" type="submit">
+                          <button
+                            className="btn"
+                            type="submit">
                             {" "}
                             <i className="bi bi-gear" /> Free Consultant{" "}
                           </button>
@@ -841,14 +974,19 @@ export default function Home() {
             </div>
             <div className="form-shape">
               <div className="testi-shape-thumb">
-                <img src="assets/images/resource/all-shape5.png" alt="" />
+                <img
+                  src="assets/images/resource/all-shape5.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
       {/* Section 10 */}
-      <div className="blog-area style-two" id="blog">
+      <div
+        className="blog-area style-two"
+        id="blog">
         <div className="container mx-auto">
           <div className="row  pb-40">
             <div className="col-lg-7 col-md-6">
@@ -862,7 +1000,9 @@ export default function Home() {
             </div>
             <div className="col-lg-5 col-md-6">
               <div className="consen-button text-right pt-4 pt-md-0">
-                <Link legacyBehavior href="/blog-grid">
+                <Link
+                  legacyBehavior
+                  href="/blog-grid">
                   <a>
                     {" "}
                     <i className="bi bi-gear" /> View all Blog{" "}
@@ -875,7 +1015,10 @@ export default function Home() {
             <div className="col-lg-4 col-md-6">
               <div className="single-blog-box">
                 <div className="single-blog-thumb">
-                  <img src="assets/images/resource/blog1.png" alt="" />
+                  <img
+                    src="assets/images/resource/blog1.png"
+                    alt=""
+                  />
                   <div className="blog-top-button">
                     <a href="#"> GRAPHIC </a>
                   </div>
@@ -887,21 +1030,28 @@ export default function Home() {
                   <div className="em-blog-title">
                     <h2>
                       {" "}
-                      <Link legacyBehavior href="/blog-details">
+                      <Link
+                        legacyBehavior
+                        href="/blog-details">
                         <a> Popular Consultants are big Meetup 2023 </a>
                       </Link>{" "}
                     </h2>
                   </div>
                   <div className="em-blog-icon">
                     <div className="em-blog-thumb">
-                      <img src="assets/images/resource/blog-icon.png" alt="" />
+                      <img
+                        src="assets/images/resource/blog-icon.png"
+                        alt=""
+                      />
                     </div>
                     <div className="em-blog-icon-title">
                       <h6> Alex Collins </h6>
                     </div>
                   </div>
                   <div className="blog-button">
-                    <Link legacyBehavior href="/blog-details">
+                    <Link
+                      legacyBehavior
+                      href="/blog-details">
                       <a>
                         {" "}
                         Learn More <i className="bi bi-plus" />{" "}
@@ -914,7 +1064,10 @@ export default function Home() {
             <div className="col-lg-4 col-md-6">
               <div className="single-blog-box">
                 <div className="single-blog-thumb">
-                  <img src="assets/images/resource/blog2.png" alt="" />
+                  <img
+                    src="assets/images/resource/blog2.png"
+                    alt=""
+                  />
                   <div className="blog-top-button">
                     <a href="#"> DEVELOPMENT </a>
                   </div>
@@ -926,21 +1079,28 @@ export default function Home() {
                   <div className="em-blog-title">
                     <h2>
                       {" "}
-                      <Link legacyBehavior href="/blog-details">
+                      <Link
+                        legacyBehavior
+                        href="/blog-details">
                         <a> How to Increase Business Products Sales </a>
                       </Link>{" "}
                     </h2>
                   </div>
                   <div className="em-blog-icon">
                     <div className="em-blog-thumb">
-                      <img src="assets/images/resource/blog-icon.png" alt="" />
+                      <img
+                        src="assets/images/resource/blog-icon.png"
+                        alt=""
+                      />
                     </div>
                     <div className="em-blog-icon-title">
                       <h6> Julia Moris </h6>
                     </div>
                   </div>
                   <div className="blog-button">
-                    <Link legacyBehavior href="/blog-details">
+                    <Link
+                      legacyBehavior
+                      href="/blog-details">
                       <a>
                         {" "}
                         Learn More <i className="bi bi-plus" />{" "}
@@ -953,7 +1113,10 @@ export default function Home() {
             <div className="col-lg-4 col-md-6">
               <div className="single-blog-box">
                 <div className="single-blog-thumb">
-                  <img src="assets/images/resource/blog3.png" alt="" />
+                  <img
+                    src="assets/images/resource/blog3.png"
+                    alt=""
+                  />
                   <div className="blog-top-button">
                     <a href="#"> DESIGN </a>
                   </div>
@@ -965,21 +1128,28 @@ export default function Home() {
                   <div className="em-blog-title">
                     <h2>
                       {" "}
-                      <Link legacyBehavior href="/blog-details">
+                      <Link
+                        legacyBehavior
+                        href="/blog-details">
                         <a> Top 10 Most Populars Google Chrome app</a>
                       </Link>
                     </h2>
                   </div>
                   <div className="em-blog-icon">
                     <div className="em-blog-thumb">
-                      <img src="assets/images/resource/blog-icon.png" alt="" />
+                      <img
+                        src="assets/images/resource/blog-icon.png"
+                        alt=""
+                      />
                     </div>
                     <div className="em-blog-icon-title">
                       <h6> Amantha </h6>
                     </div>
                   </div>
                   <div className="blog-button">
-                    <Link legacyBehavior href="/blog-details">
+                    <Link
+                      legacyBehavior
+                      href="/blog-details">
                       <a>
                         {" "}
                         Learn More <i className="bi bi-plus" />{" "}
@@ -991,7 +1161,10 @@ export default function Home() {
             </div>
             <div className="blog-shape">
               <div className="port-shape-thumb2 bounce-animate2">
-                <img src="assets/images/resource/all-shape6.png" alt="" />
+                <img
+                  src="assets/images/resource/all-shape6.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -1008,7 +1181,9 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-lg-8 col-md-12 flex">
-                <a href="tel:09837393403" className="subscribe-icon">
+                <a
+                  href="tel:09837393403"
+                  className="subscribe-icon">
                   <i className="bi bi-telephone-inbound" />
                 </a>
                 <div className="subscribe-title2">
@@ -1021,7 +1196,6 @@ export default function Home() {
         </div>
       </div>
       <Footer />
-
     </>
   );
 }
