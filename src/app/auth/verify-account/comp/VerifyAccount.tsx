@@ -16,7 +16,7 @@ import { FormSchema } from "@/validation/Schemas/dataSchema";
 import { useRouter } from "next/navigation";
 // validation schema
 
-export function OTPinput() {
+export function OTPinput({ email }: { email: string }) {
   const { errorMessage, successMessage } = useMessage();
   const { isLoading, startLoading, stopLoading } = useLoading();
   const router = useRouter();
@@ -36,7 +36,8 @@ export function OTPinput() {
       const response = await axios.post(
         "/auth/verifyEmail",
         {
-          OTP: data.pin
+          OTP: data.pin,
+          email: email
         },
 
         {
@@ -50,7 +51,7 @@ export function OTPinput() {
         stopLoading();
         successMessage("OTP verified successfully", "bottom-right", 3000);
         const token = response?.data?.data?.accessToken;
-        const setToken = await fetch("/api/verifyUser", {
+        await fetch("/api/verifyUser", {
           method: "POST",
           body: JSON.stringify({
             token
@@ -59,17 +60,15 @@ export function OTPinput() {
             "Content-type": "application/json; charset=UTF-8"
           }
         });
-        console.log(setToken);
         form.reset();
-        if (typeof window !== "undefined") window.location.reload();
-        return router.push("/home");
+        return router.push("/");
       } else if (response.status === 400) {
         return errorMessage("Invalid OTP");
       }
     } catch (error: any) {
       console.log(error);
       stopLoading();
-      errorMessage(error?.response?.data.message || "Something went wrong while sending otp");
+      errorMessage("Unable to verify account please try again.");
       if (error instanceof Error) {
         stopLoading();
         console.log(error.message);

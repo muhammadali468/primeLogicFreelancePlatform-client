@@ -1,6 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { refreshTokenExpiry } from "@/constants";
 import { ENV } from "@/config";
 
 interface BodyProps {
@@ -15,10 +14,11 @@ export async function POST(req: NextRequest) {
   const cookie = cookies();
 
   cookie.set("accessToken", token, {
-    httpOnly: ENV === "PRODUCTION",
+    httpOnly: true,
     secure: ENV === "PRODUCTION",
-    sameSite: "none",
-    expires: new Date(Date.now() + refreshTokenExpiry)
+    sameSite: "lax",
+    path: "/",
+    maxAge: 7 * 24 * 60 * 60 * 1000
   });
 
   return NextResponse.json({
