@@ -8,24 +8,19 @@ import "../../public/assets/css/magnific-popup.css";
 import "../../public/assets/css/owl.transitions.css";
 
 import "../../public/assets/css/style.css";
+import { Toaster } from "sonner";
 
 // import "../../public/assets/css/flaticon.css";
 
-
-
-
-
-
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100","200","300","400","500","600"] 
+  weight: ["100", "200", "300", "400", "500", "600"]
 });
 
 const firaSans = Fira_Sans({
   subsets: ["latin"],
-  weight: ["100","200","300","400","500","600"] 
+  weight: ["100", "200", "300", "400", "500", "600"]
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -39,7 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <body className={`${poppins.className} ${firaSans.className}`}>{children}</body>
+      <body className={`${poppins.className} ${firaSans.className}`}>
+        <Toaster /> {children}
+      </body>
     </html>
   );
 }

@@ -1,18 +1,20 @@
 import { Fragment } from "react";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 
-const ProgressBar = ({ value }:any) => {
+const ProgressBar = ({ value }: any) => {
   return (
     <Fragment>
-      <div className="circle_percent" data-percent={85}>
+      <div
+        className="circle_percent"
+        data-percent={85}>
         <CircularProgressbar
-        // @ts-ignore
+          // @ts-ignore
           width={130}
           value={value}
           strokeWidth={6}
           styles={buildStyles({
             pathColor: "#FF3C00",
-            trailColor: "#FFEAE3",
+            trailColor: "#FFEAE3"
           })}
         />
         <div className="circle_inbox">

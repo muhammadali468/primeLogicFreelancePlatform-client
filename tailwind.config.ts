@@ -15,14 +15,14 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)"
       },
       colors: {},
-      container:{
+      container: {
         screens: {
-          sm: '540px',  // Match Bootstrap's sm container size
-          md: '720px',  // Match Bootstrap's md container size
-          lg: '960px',  // Match Bootstrap's lg container size
-          xl: '1140px', // Match Bootstrap's xl container size
+          sm: "540px", // Match Bootstrap's sm container size
+          md: "720px", // Match Bootstrap's md container size
+          lg: "960px", // Match Bootstrap's lg container size
+          xl: "1140px" // Match Bootstrap's xl container size
           // '2xl': '1320px', // Match Bootstrap's xxl container size
-        },
+        }
       }
     }
   },
