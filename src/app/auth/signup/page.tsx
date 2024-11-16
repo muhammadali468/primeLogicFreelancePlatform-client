@@ -4,7 +4,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { BACKEND_URI } from "@/config";
 import { useLoading } from "@/hooks/useLoading";
 import { useMessage } from "@/hooks/useMessage";
 import { cn } from "@/lib/utils";
@@ -12,17 +11,16 @@ import type { UserRegisterTypes } from "@/types";
 import { registerSchema } from "@/validation/Schemas/dataSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeClosedIcon, EyeOpenIcon } from "@radix-ui/react-icons";
-import axios from "axios";
+import { axios } from "@/axios/index";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 // ********************  Register Form
 
 function RegisterForm() {
-  const { successMessage } = useMessage();
+  const { errorMessage, successMessage } = useMessage();
   const { isLoading, startLoading, stopLoading } = useLoading();
-  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setConfirmShowPassword] = useState(false);
   const {
@@ -31,14 +29,14 @@ function RegisterForm() {
     handleSubmit,
     formState: { errors }
   } = useForm<UserRegisterTypes>({ resolver: zodResolver(registerSchema) });
+  const router = useRouter();
   const handleRegisterSubmit = async (data: UserRegisterTypes) => {
-    console.log(data);
     const { username, fullName, email, password } = data;
 
     try {
       startLoading();
       const response = await axios.post(
-        `${BACKEND_URI}/api/v1/auth/register`,
+        `/auth/register`,
         {
           username: username.toLowerCase(),
           fullName: fullName.toLowerCase(),
@@ -51,26 +49,43 @@ function RegisterForm() {
           }
         }
       );
-      console.log(response);
+      console.log(response.data);
+
       stopLoading();
       if (response.data.success) {
         reset();
-        successMessage(response.data.message || "User Registered successfully.");
+        successMessage(response.data.message || "User Registered successfully .");
+        const res = await fetch("/api/fetchToken", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            token: response.data.data.accessToken
+          })
+        });
 
-        setTimeout(() => {
-          return router.push("/user-auth/sign-in");
-        }, 3000);
+        const data = await res.json();
+        console.log(data);
+
+        stopLoading();
+        return router.push("/auth/verify-account");
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       stopLoading();
-      console.log(error);
-
+      // console.log(response.data);
+      if (error instanceof Error) {
+        return errorMessage(error.message || "User registration  fail");
+      } else {
+        console.log(`error::`, { error });
+      }
       // return errorMessage(error?.response?.data?.message || "some thing went wrong while register the user");
+    } finally {
+      stopLoading();
     }
   };
   return (
     <>
-      <p>{BACKEND_URI}</p>
       <section className="relative top-20">
         <form
           onSubmit={handleSubmit(handleRegisterSubmit)}
